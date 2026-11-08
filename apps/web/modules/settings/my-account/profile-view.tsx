@@ -59,6 +59,7 @@ export type FormValues = {
   name: string;
   email: string;
   bio: string;
+  publicReplyEmail: string;
   secondaryEmails: Email[];
 };
 type Props = {
@@ -231,6 +232,7 @@ const ProfileView = ({ user }: Props) => {
     avatarUrl: user.avatarUrl,
     name: user.name || "",
     email: userEmail,
+    publicReplyEmail: user.publicReplyEmail || "",
     bio: user.bio || "",
     // We add the primary email as the first item in the list
     secondaryEmails: [
