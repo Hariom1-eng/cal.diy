@@ -210,6 +210,7 @@ const selectStatementToGetBookingForCalEventBuilder = {
       id: true,
       name: true,
       email: true,
+      publicReplyEmail: true,
       username: true,
       timeZone: true,
       locale: true,
