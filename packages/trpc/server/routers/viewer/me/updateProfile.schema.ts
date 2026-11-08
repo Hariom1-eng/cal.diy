@@ -1,6 +1,7 @@
 import { FULL_NAME_LENGTH_MAX_LIMIT } from "@calcom/lib/constants";
 import { timeZoneSchema } from "@calcom/lib/dayjs/timeZone.schema";
 import { bookerLayouts, userMetadata } from "@calcom/prisma/zod-utils";
+import { emailSchema } from "@calcom/lib/emailSchema";
 import { z } from "zod";
 
 export type TUpdateUserMetadataAllowedKeys = {
@@ -17,6 +18,7 @@ export type TUpdateProfileInputSchemaInput = {
   username?: string;
   name?: string;
   email?: string;
+  publicReplyEmail?: string | null;
   bio?: string;
   avatarUrl?: string | null;
   timeZone?: string;
@@ -51,6 +53,7 @@ export type TUpdateProfileInputSchema = {
   username?: string;
   name?: string;
   email?: string;
+  publicReplyEmail?: string | null;
   bio?: string;
   avatarUrl?: string | null;
   timeZone?: string;
@@ -89,6 +92,7 @@ export const ZUpdateProfileInputSchema: z.ZodType<
   username: z.string().optional(),
   name: z.string().max(FULL_NAME_LENGTH_MAX_LIMIT).optional(),
   email: z.string().optional(),
+  publicReplyEmail: z.string().email().nullable().optional(),
   bio: z.string().optional(),
   avatarUrl: z.string().nullable().optional(),
   timeZone: timeZoneSchema.optional(),
