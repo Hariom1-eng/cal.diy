@@ -33,6 +33,7 @@ export type Person = {
   name: string;
   email: string;
   timeZone: string;
+  publicReplyEmail?: string | null;
   language: { translate: TFunction; locale: string };
   username?: string;
   usernameInOrg?: string;
